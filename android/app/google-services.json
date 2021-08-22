@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212058743841",
+    "firebase_url": "https://flutter-b2-zimaam-default-rtdb.firebaseio.com",
+    "project_id": "flutter-b2-zimaam",
+    "storage_bucket": "flutter-b2-zimaam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212058743841:android:112fa57bebb46ea0972f60",
+        "android_client_info": {
+          "package_name": "com.example.flutter_b2_zimaam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212058743841-ke2s9pvlv2iqtp41uu7umljgh7biqufn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX__EfIlPwj6My644YxjSZlYdsH_5C-BI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212058743841-ke2s9pvlv2iqtp41uu7umljgh7biqufn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
