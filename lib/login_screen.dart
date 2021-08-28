@@ -6,6 +6,7 @@ import 'package:flutter_b2_zimaam/create_user.dart';
 import 'package:flutter_b2_zimaam/home_screen.dart';
 import 'package:flutter_b2_zimaam/shared_preferences_service.dart';
 import 'package:flutter_b2_zimaam/show_error_message.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -29,8 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       //////////-------------App Bar----------
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Book Store App'),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.blueAccent,
       ),
 
       body: Stack(
@@ -41,10 +43,11 @@ class _LoginScreenState extends State<LoginScreen> {
             constraints: BoxConstraints.expand(),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/emil-widlund-ZtI4l8EvyUw-unsplash.jpg"),
-                  fit: BoxFit.cover
+                  image: AssetImage("assets/colorful-books.jpg"),
+                  fit: BoxFit.fill
                 )
               ),
+
               ////////----------Login Box Decoration---------------
               child: SingleChildScrollView(
                 child:Container(
@@ -53,34 +56,35 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 400,
                   /////-----Gradiant Decoration for container-------------
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.8),
-                    /*gradient: LinearGradient(
+                    ///color: Colors.white.withOpacity(1),
+                    gradient: LinearGradient(
                       colors: [
-                        Colors.blue.withOpacity(0.6),
-                        Colors.cyan.withOpacity(0.6),
+                        ///Colors.yellowAccent.withOpacity(0.7),
+                        ///Colors.lightGreen.withOpacity(0.7),
+                        Colors.blueAccent.withOpacity(0.4),
+                        Colors.white30.withOpacity(0.7),
+
                       ],
-                      begin: Alignment.topLeft,
+                      begin: Alignment.topCenter,
                       end: Alignment.bottomRight,
-                      stops: [0.5,0.7]
-                    ),*/
+                      stops: [0.2,0.6]
+                    ),
                     borderRadius: BorderRadius.circular(30),
-                      ///color: Colors.white
                   ),
 
                   child: Column(
-                    ///mainAxisAlignment: MainAxisAlignment.center,
-                    ///crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ///////----------Login Text-----------
                       Container(
-                        padding: EdgeInsets.only(top: 30),
-                        child: Text('Log In',
+                        child: Text('Login',
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 40,
                               fontWeight: FontWeight.bold
                           ),),
                       ),
+
                       ///////----------Email Address-----------
                       Container(
                         width: 350,
@@ -92,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: _emailController,
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
-                                  icon: Icon(Icons.email_rounded,size: 30,color: Colors.red,),
+                                  icon: Icon(Icons.email_rounded,size: 30,color: Colors.deepOrangeAccent,),
                                   filled: true,
                                   fillColor: Colors.white,
                                   border: OutlineInputBorder(
@@ -119,15 +123,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onChanged: (value){},
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    icon: Icon(Icons.password_rounded,color: Colors.red,),
+                                    icon: Icon(Icons.vpn_key_rounded,size: 30,color: Colors.deepOrangeAccent,),
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                     labelText: 'Enter Password',
-                                    labelStyle: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
-
+                                    labelStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
                                   ),
                                 )
                             )
@@ -137,12 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       ///////////-----------Login Button--------
                       Container(
+                        width: 180,
+                        margin: EdgeInsets.only(left: 10),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             primary: Colors.deepOrangeAccent,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))
                           ),
-                          child: Text('Log In',
+                          child: Text('Login',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 17,
@@ -159,13 +164,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Container(
                               child: Text('Don\'t have an account? ',
-                              style: TextStyle(color: Colors.grey,fontSize: 15),),
+                              style: TextStyle(color: Colors.black54,fontSize: 15),),
                             ),
                             Container(
                               child: TextButton(
                                 child: Text('CREATE USER',
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.indigo,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -188,14 +193,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: double.infinity,
                 color: Colors.black.withOpacity(0.3),
                 child: Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: Colors.white,
+                  child: SpinKitChasingDots(
+                    color: Colors.white,
+                    size: 50,
+                    duration: Duration(seconds: 1),
                   ),
                 ),
-              ))
+              )
+          )
         ],
       )
-
     );
   }
 
@@ -215,6 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
             MaterialPageRoute(builder: (context) => HomeScreen()),
             ModalRoute.withName('/'),
         );
+
       }else{
         ShowErrorMessage.showMessage(context,'Wrong Email or Password');
       }

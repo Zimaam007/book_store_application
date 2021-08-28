@@ -34,10 +34,21 @@ dependencies:
   cloud_firestore: ^2.4.0
   firebase_messaging: ^10.0.4
   shared_preferences: ^2.0.6
+  email_validator: ^2.0.1 #email validator
+
+  flutter_spinkit: ^5.0.0 #for loading screen animation.
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: ^0.9.2 #application custom icon launcher
+
+flutter_icons:
+  image_path: "assets/book_wifi.png"
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -52,7 +63,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/emil-widlund-ZtI4l8EvyUw-unsplash.jpg
+    - assets/colorful-books.jpg
+
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

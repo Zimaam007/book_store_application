@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ShowErrorMessage{
   static void showMessage(BuildContext context, String message){
     ElevatedButton okButton = ElevatedButton(
-        child: Text('Ok'),
+        child: Text('OK'),
         onPressed: (){
           Navigator.pop(context);
         },
